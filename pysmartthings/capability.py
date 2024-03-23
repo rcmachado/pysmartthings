@@ -57,6 +57,7 @@ CAPABILITIES_TO_ATTRIBUTES = {
         "gasMeterTime",
         "gasMeterVolume",
     ],
+    "healthCheck": ["ping"],
     "illuminanceMeasurement": ["illuminance"],
     "infraredLevel": ["infraredLevel"],
     "lock": ["lock"],
@@ -196,6 +197,7 @@ class Capability:
     formaldehyde_measurement = "formaldehydeMeasurement"
     garage_door_control = "garageDoorControl"
     gas_meter = "gasMeter"
+    health_check = "healthCheck"
     illuminance_measurement = "illuminanceMeasurement"
     infrared_level = "infraredLevel"
     lock = "lock"
