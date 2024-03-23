@@ -85,6 +85,7 @@ class Command:
     set_tv_channel = "setTvChannel"
     channel_up = "channelUp"
     channel_down = "channelDown"
+    ping = "ping"
 
 
 class Device:
@@ -1425,6 +1426,17 @@ class DeviceEntity(Entity, Device):
             self.status.switch = level > 0
         return result
 
+    async def ping(
+        self, set_status: bool = False, *, component_id: str = "main"
+    ) -> bool:
+        """Call the ping command."""
+        result = await self.command(component_id, Capability.healthCheck, Command.ping)
+        if result and set_status:
+            # need to update all attributes
+            self.status.switch = True
+        return result
+
+    
     @property
     def status(self):
         """Get the status entity of the device."""
